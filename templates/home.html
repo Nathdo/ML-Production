@@ -6,8 +6,29 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <h1>Hello ML-Production</h1>
+
+<h1>Hello ML-Production</h1>
+
+<div class = "login">
+
+    <h1>Prediction</h1>
+
+    <form action="{{ url_for('user_predict')}}" method = "post">
+        <input type="text" name = "HouseAge" placeholder= "HouseAge" required /><br>
+        <input type="text" name = "AveRooms" placeholder= "AveRooms" required /><br>
+        <input type="text" name = "AveBedrms" placeholder= "AveBedrms" required /><br>
+        <input type="text" name = "Population" placeholder= "Population" required /><br>
+        <input type="text" name = "AveOccup" placeholder= "AveOccup" required /><br>
+        <input type="text" name = "Latitude" placeholder= "Latitude" required /><br>
+        <input type="text" name = "Longitude" placeholder= "Longitude" required /><br>
+
+        <button type = "submit" class = "btn">Predict</button>
+    </form>
+    <br>
+    <br>
+</div>
+{{prediction_text}}
+
 
 </body>
 </html>
