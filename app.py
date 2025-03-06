@@ -16,14 +16,20 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    '''
+    Predict from a json file
+    '''
     data = request.json['data']
     dataframe = pd.DataFrame(data, index = [0])
     data_scaled = scaler.transform(dataframe)
     prediction = model.predict(data_scaled)
     return jsonify({'prediction': prediction[0]})
 
-@app.route('/predict_user', methods = ['POST'])
+@app.route('/predict_user', methods=['GET', 'POST'])
 def user_predict():
+    '''
+    Predict from a user (form).
+    '''
     data = [float(x) for x in request.form.values()]
     columns_name = list(request.form.keys())
 
